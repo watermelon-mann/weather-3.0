@@ -1,10 +1,14 @@
 pluginManagement {
+    @Suppress("UnstableApiUsage")
     repositories {
+        includeBuild("build-logic")
         gradlePluginPortal()
         google()
         mavenCentral()
     }
 }
+
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -13,7 +17,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Weather"
-include ':app'
-include ':shared:entity'
-include ':feature:data'
-include ':feature:domain'
+include(":app")
+include(":shared:entity")
+include(":feature:data")
+include(":feature:domain")
