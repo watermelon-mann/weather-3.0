@@ -1,6 +1,5 @@
 package com.watermleonmann.weather
 
-import AppConfig
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -14,16 +13,13 @@ internal fun Project.configureKotlinAndroid(
     commonExtension: CommonExtension<*, *, *, *>
 ) {
     commonExtension.apply {
-        compileSdk = AppConfig.compileSdk
-        defaultConfig {
-            minSdk = AppConfig.minSdk
-        }
 
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
             isCoreLibraryDesugaringEnabled = true
         }
+
 
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()

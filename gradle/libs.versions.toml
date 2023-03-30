@@ -1,7 +1,7 @@
 ##########################################
 [versions]
 kotlin = "1.7.20"
-androidGradlePlugin = "7.3.1"
+androidGradlePlugin = "7.4.1"
 
 androidDesugarJdkLibs = "1.2.2"
 androidxAppCompat = "1.6.0"
@@ -9,6 +9,7 @@ androidxConstraintLayout = "2.1.4"
 androidxCore = "1.9.0"
 androidxCoreSplashscreen = "1.0.0"
 androidxLifecycle = "2.5.1"
+material = "1.8.0"
 kotlinxCoroutines = "1.6.4"
 kotlinxDatetime = "0.4.0"
 kotlinxSerializationJson = "1.4.1"
@@ -28,6 +29,7 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
 androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+material-design = { group = "com.google.android.material", name = "material", version.ref = "material" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
