@@ -3,8 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":feature:domain"))
-    implementation(project(":feature:data"))
     implementation(project(":shared:entity"))
 
     implementation(libs.androidx.core.ktx)

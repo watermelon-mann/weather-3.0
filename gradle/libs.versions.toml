@@ -1,6 +1,6 @@
 ##########################################
 [versions]
-kotlin = "1.7.20"
+kotlin = "1.8.20"
 androidGradlePlugin = "7.4.1"
 
 androidDesugarJdkLibs = "1.2.2"

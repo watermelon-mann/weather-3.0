@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.watermleonmann.weather.configureAndroidApplication
+import com.watermleonmann.weather.configureBuildTypes
 import com.watermleonmann.weather.configureKotlinAndroid
 import com.watermleonmann.weather.configureSdkVersions
 import com.watermleonmann.weather.configureTest
@@ -18,6 +19,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         configureSdkVersions()
         extensions.configure<ApplicationExtension> {
             configureKotlinAndroid(this)
+            configureBuildTypes()
         }
         configureTest()
     }

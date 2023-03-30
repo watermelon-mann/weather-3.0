@@ -2,6 +2,7 @@ package com.watermleonmann.weather
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 
 
@@ -13,5 +14,10 @@ internal fun Project.configureTest() {
             // Temporary workaround for https://issuetracker.google.com/174733673
             force("org.objenesis:objenesis:2.6")
         }
+    }
+    dependencies {
+        add("testImplementation", libs.findLibrary("junit4").get())
+        add("androidTestImplementation", libs.findLibrary("androidx.test.espresso.core").get())
+        add("androidTestImplementation", libs.findLibrary("androidx.test.ext").get())
     }
 }
