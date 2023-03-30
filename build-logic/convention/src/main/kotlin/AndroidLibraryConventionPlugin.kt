@@ -1,5 +1,6 @@
 import com.android.build.gradle.LibraryExtension
 import com.watermleonmann.weather.configureKotlinAndroid
+import com.watermleonmann.weather.configureSdkVersions
 import com.watermleonmann.weather.configureTest
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -14,9 +15,9 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             apply("com.android.library")
             apply("org.jetbrains.kotlin.android")
         }
+        configureSdkVersions()
         extensions.configure<LibraryExtension> {
             configureKotlinAndroid(this)
-            defaultConfig.targetSdk = AppConfig.targetSdk
         }
         configureTest()
         dependencies {
