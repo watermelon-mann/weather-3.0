@@ -1,5 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
+import com.watermleonmann.weather.configureAndroidApplication
 import com.watermleonmann.weather.configureKotlinAndroid
+import com.watermleonmann.weather.configureSdkVersions
 import com.watermleonmann.weather.configureTest
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -12,9 +14,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             apply("com.android.application")
             apply("org.jetbrains.kotlin.android")
         }
+        configureAndroidApplication()
+        configureSdkVersions()
         extensions.configure<ApplicationExtension> {
             configureKotlinAndroid(this)
-            defaultConfig.targetSdk = AppConfig.targetSdk
         }
         configureTest()
     }
