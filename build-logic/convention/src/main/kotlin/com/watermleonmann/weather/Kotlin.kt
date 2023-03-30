@@ -14,12 +14,15 @@ internal fun Project.configureKotlinAndroid(
 ) {
     commonExtension.apply {
 
+        defaultConfig {
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
+
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
             isCoreLibraryDesugaringEnabled = true
         }
-
 
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_11.toString()

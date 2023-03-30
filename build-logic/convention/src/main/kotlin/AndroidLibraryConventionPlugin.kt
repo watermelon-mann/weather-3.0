@@ -1,12 +1,11 @@
 import com.android.build.gradle.LibraryExtension
+import com.watermleonmann.weather.configureBuildTypes
 import com.watermleonmann.weather.configureKotlinAndroid
 import com.watermleonmann.weather.configureSdkVersions
 import com.watermleonmann.weather.configureTest
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.kotlin
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
 
@@ -18,11 +17,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         configureSdkVersions()
         extensions.configure<LibraryExtension> {
             configureKotlinAndroid(this)
+            configureBuildTypes()
         }
         configureTest()
-        dependencies {
-            add("androidTestImplementation", kotlin("test"))
-            add("testImplementation", kotlin("test"))
-        }
     }
 }

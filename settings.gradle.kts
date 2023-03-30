@@ -16,8 +16,11 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "Weather"
+
 include(":app")
 include(":shared:entity")
-include(":feature:data")
-include(":feature:domain")
+include(":api:data")
+include(":core:data")
+include(":core:domain")
