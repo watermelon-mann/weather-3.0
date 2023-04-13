@@ -1,13 +1,10 @@
 package com.watermleonmann.weather
 
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
 
 
 internal fun Project.configureTest() {
-    val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
     configurations.configureEach {
         resolutionStrategy {
             force(libs.findLibrary("junit4").get())
@@ -16,8 +13,10 @@ internal fun Project.configureTest() {
         }
     }
     dependencies {
-        add("testImplementation", libs.findLibrary("junit4").get())
-        add("androidTestImplementation", libs.findLibrary("androidx.test.espresso.core").get())
-        add("androidTestImplementation", libs.findLibrary("androidx.test.ext").get())
+        withLibs {
+            add("testImplementation", get("junit4"))
+            add("androidTestImplementation", get("androidx.test.espresso.core"))
+            add("androidTestImplementation", get("androidx.test.ext"))
+        }
     }
 }
