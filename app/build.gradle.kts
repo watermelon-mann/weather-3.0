@@ -1,5 +1,6 @@
 plugins {
     id("weather.android.application")
+    id("weather.android.hilt")
 }
 
 dependencies {
