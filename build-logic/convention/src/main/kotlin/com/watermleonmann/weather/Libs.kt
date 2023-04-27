@@ -6,8 +6,9 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.getByType
 
 
-fun Project.withLibs(block: VersionCatalog.() -> Unit) = libs.apply(block)
+fun Project.withLibs(block: VersionCatalog.() -> Unit): VersionCatalog = libs.apply(block)
 
-val Project.libs get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
+val Project.libs: VersionCatalog
+    get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 fun VersionCatalog.get(alias: String) = findLibrary(alias).get()
