@@ -3,9 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.watermelonmann.data"
+    namespace = "com.watermelonmann.api.data"
 }
 
 dependencies {
+    implementation(project(":shared:entity"))
 
+    implementation(libs.kotlinx.coroutines.android)
 }

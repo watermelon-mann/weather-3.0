@@ -25,6 +25,8 @@ android {
 
 dependencies {
     implementation(project(":api:data"))
+    implementation(project(":shared:common"))
+    implementation(project(":shared:entity"))
 
     implementation(libs.retrofit)
     implementation(libs.logging.interceptor)
