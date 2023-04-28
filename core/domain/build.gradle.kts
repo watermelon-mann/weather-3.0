@@ -8,6 +8,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared:entity"))
     implementation(project(":api:data"))
     implementation(project(":core:data"))
 }
