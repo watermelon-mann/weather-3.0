@@ -1,4 +1,4 @@
-import com.watermleonmann.weather.get
+import com.watermleonmann.weather.getLibrary
 import com.watermleonmann.weather.withLibs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,9 +16,9 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
 
         dependencies {
             withLibs {
-                "implementation"(get("hilt.android"))
-                "kapt"(get("hilt.compiler"))
-                "kaptAndroidTest"(get("hilt.compiler"))
+                "implementation"(getLibrary("hilt.android"))
+                "kapt"(getLibrary("hilt.compiler"))
+                "kaptAndroidTest"(getLibrary("hilt.compiler"))
             }
         }
     }

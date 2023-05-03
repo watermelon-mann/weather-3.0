@@ -11,4 +11,6 @@ fun Project.withLibs(block: VersionCatalog.() -> Unit): VersionCatalog = libs.ap
 val Project.libs: VersionCatalog
     get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-fun VersionCatalog.get(alias: String) = findLibrary(alias).get()
+fun VersionCatalog.getLibrary(alias: String) = findLibrary(alias).get()
+
+fun VersionCatalog.getVersion(alias: String) = findVersion(alias).get()

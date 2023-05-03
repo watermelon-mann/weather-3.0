@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_results_found">No results found for \u0022%s\u0022"</string>
+    <string name="type_to_search">Type to search for your city</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="country">Country: %s</string>
+    <string name="search">Search</string>
+</resources>

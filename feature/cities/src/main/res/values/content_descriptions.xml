@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cd_no_results_found">No results found by "%s"</string>
+    <string name="cd_type_to_search">Type to search for your city</string>
+</resources>
