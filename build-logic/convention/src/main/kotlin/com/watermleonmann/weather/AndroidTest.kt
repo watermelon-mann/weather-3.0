@@ -14,9 +14,9 @@ internal fun Project.configureTest() {
     }
     dependencies {
         withLibs {
-            "testImplementation"(get("junit4"))
-            "androidTestImplementation"(get("androidx.test.espresso.core"))
-            "androidTestImplementation"(get("androidx.test.ext"))
+            "testImplementation"(getLibrary("junit4"))
+            "androidTestImplementation"(getLibrary("androidx.test.espresso.core"))
+            "androidTestImplementation"(getLibrary("androidx.test.ext"))
         }
     }
 }

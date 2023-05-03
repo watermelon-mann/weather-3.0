@@ -1,5 +1,4 @@
 import com.android.build.gradle.LibraryExtension
-import com.watermleonmann.weather.configureBuildTypes
 import com.watermleonmann.weather.configureKotlinAndroid
 import com.watermleonmann.weather.configureSdkVersions
 import com.watermleonmann.weather.configureTest
@@ -17,7 +16,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         configureSdkVersions()
         extensions.configure<LibraryExtension> {
             configureKotlinAndroid(this)
-            configureBuildTypes()
         }
         configureTest()
     }

@@ -30,5 +30,14 @@ gradlePlugin {
             id = "weather.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+
+        register("composeApplication") {
+            id = "weather.compose.android.application"
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+        register("composeLibrary") {
+            id = "weather.compose.android.library"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
     }
 }
