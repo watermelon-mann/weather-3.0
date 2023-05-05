@@ -29,6 +29,4 @@ internal fun CitiesScreen(
             )
         }
     }
-
-
 }
