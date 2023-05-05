@@ -1,7 +1,7 @@
 ##########################################
 [versions]
 kotlin = "1.8.20"
-androidGradlePlugin = "7.4.1"
+androidGradlePlugin = "8.0.1"
 
 androidDesugarJdkLibs = "1.2.2"
 androidxAppCompat = "1.6.0"
@@ -21,7 +21,7 @@ loggingInterceptor = "4.10.0"
 kotlinSerializationConverter = "1.0.0"
 hiltComposeNavigation = "1.0.0"
 androidxComposeCompiler = "1.4.6"
-androidxComposeBom = "2023.04.01"
+androidxComposeBom = "2023.05.00"
 androidxComposeRuntime = "1.4.2"
 navigation = "2.5.3"
 
