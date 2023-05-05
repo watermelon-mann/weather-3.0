@@ -8,6 +8,7 @@ import com.watermelonmann.ui.naviagation.RouteNavigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +17,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -40,13 +41,12 @@ class CitiesViewModel @Inject constructor(
         collectSearchQueries()
     }
 
-    @OptIn(FlowPreview::class)
+    @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
     private fun collectSearchQueries() = searchQueries
-        .onEach { query -> if (query.isEmpty()) emitHintState() }
-        .filter { it.isNotEmpty() }
-        .onEach { emitLoading() }
+        .onEach { query -> if (query.isBlank()) emitHintState() else emitLoading() }
         .debounce(400)
-        .flatMapMerge { searchCitiesUseCase(it, CITIES_LIMIT) }
+        .filter { it.isNotBlank() }
+        .flatMapLatest { searchCitiesUseCase(it, CITIES_LIMIT) }
         .flowOn(Dispatchers.IO)
         .onEach(::onSearchResult)
         .catch { emitError() }
