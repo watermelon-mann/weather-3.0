@@ -12,7 +12,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -30,10 +29,14 @@ class CitiesViewModel @Inject constructor(
     routeNavigator: RouteNavigator
 ) : ViewModel(), RouteNavigator by routeNavigator {
 
-    private val _state = MutableStateFlow(CitiesUiModel())
-    internal val state = _state.asStateFlow()
+    private val uiState = MutableStateFlow(CitiesUiModel())
+    internal val state = CitiesScreenState(uiState) { event ->
+        when (event) {
+            is CitiesEvent.Search -> searchCity(event.query)
+        }
+    }
 
-    private val searchQueries: Flow<String> = _state
+    private val searchQueries: Flow<String> = uiState
         .map { it.searchQuery }
         .distinctUntilChanged()
 
@@ -52,19 +55,19 @@ class CitiesViewModel @Inject constructor(
         .catch { emitError() }
         .launchIn(viewModelScope)
 
-    fun searchCity(query: String) = _state.update {
+    private fun searchCity(query: String) = uiState.update {
         it.copy(
             searchQuery = query
         )
     }
 
-    private fun emitLoading() = _state.update {
+    private fun emitLoading() = uiState.update {
         it.copy(
             screenState = ScreenState.LOADING
         )
     }
 
-    private fun emitError() = _state.update {
+    private fun emitError() = uiState.update {
         it.copy(
             screenState = ScreenState.ERROR
         )
@@ -74,21 +77,21 @@ class CitiesViewModel @Inject constructor(
         if (cities.isEmpty()) emitEmptyState() else emitCities(cities)
     }
 
-    private fun emitEmptyState() = _state.update {
+    private fun emitEmptyState() = uiState.update {
         it.copy(
             screenState = ScreenState.EMPTY,
             cities = emptyList()
         )
     }
 
-    private fun emitCities(cities: List<CityEntity>) = _state.update {
+    private fun emitCities(cities: List<CityEntity>) = uiState.update {
         it.copy(
             screenState = ScreenState.CONTENT,
             cities = cities
         )
     }
 
-    private fun emitHintState() = _state.update {
+    private fun emitHintState() = uiState.update {
         it.copy(
             screenState = ScreenState.HINT
         )
