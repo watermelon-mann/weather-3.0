@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.watermelonmann.cities.R
 import com.watermelonmann.entity.CityEntity
 import com.watermelonmann.ui.theme.ThemePreview
-import com.watermelonmann.ui.theme.WeatherTheme
+import com.watermelonmann.ui.theme.WeatherPreviewTheme
 
 @Composable
 internal fun CityView(
@@ -43,7 +43,7 @@ internal fun CityView(
 @ThemePreview
 @Composable
 private fun CityViewPreview() {
-    WeatherTheme {
+    WeatherPreviewTheme {
         CityView(
             city = CityEntity(
                 name = "London",

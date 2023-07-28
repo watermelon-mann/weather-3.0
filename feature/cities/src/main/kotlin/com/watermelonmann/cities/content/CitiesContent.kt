@@ -11,7 +11,7 @@ import com.watermelonmann.cities.CitiesUiModel
 import com.watermelonmann.cities.component.CityView
 import com.watermelonmann.entity.CityEntity
 import com.watermelonmann.ui.theme.ThemePreview
-import com.watermelonmann.ui.theme.WeatherTheme
+import com.watermelonmann.ui.theme.WeatherPreviewTheme
 
 @Composable
 internal fun CitiesContent(
@@ -33,7 +33,7 @@ internal fun CitiesContent(
 @ThemePreview
 @Composable
 private fun CitiesContentPreview() {
-    WeatherTheme {
+    WeatherPreviewTheme {
         CitiesContent(
             model = CitiesUiModel(
                 cities = listOf(

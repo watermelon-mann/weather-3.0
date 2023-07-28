@@ -5,7 +5,7 @@ import androidx.compose.ui.res.stringResource
 import com.watermelonmann.cities.R
 import com.watermelonmann.cities.component.MessageView
 import com.watermelonmann.ui.theme.ThemePreview
-import com.watermelonmann.ui.theme.WeatherTheme
+import com.watermelonmann.ui.theme.WeatherPreviewTheme
 
 @Composable
 internal fun CitiesHint() {
@@ -17,7 +17,7 @@ internal fun CitiesHint() {
 @ThemePreview
 @Composable
 private fun CitiesHintPreview() {
-    WeatherTheme {
+    WeatherPreviewTheme {
         CitiesHint()
     }
 }
