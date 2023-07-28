@@ -1,4 +1,4 @@
-package com.watermelonmann.domain
+package com.watermelonmann.data_mock
 
 import org.junit.Test
 
