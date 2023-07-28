@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.watermelonmann.ui.component.LoadingView
 import com.watermelonmann.ui.theme.ThemePreview
-import com.watermelonmann.ui.theme.WeatherTheme
+import com.watermelonmann.ui.theme.WeatherPreviewTheme
 
 @Composable
 internal fun CitiesLoading() {
@@ -17,7 +17,7 @@ internal fun CitiesLoading() {
 @ThemePreview
 @Composable
 private fun CitiesLoadingPreview() {
-    WeatherTheme {
+    WeatherPreviewTheme {
         CitiesLoading()
     }
 }

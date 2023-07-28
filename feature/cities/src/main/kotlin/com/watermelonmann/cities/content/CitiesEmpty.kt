@@ -5,7 +5,7 @@ import androidx.compose.ui.res.stringResource
 import com.watermelonmann.cities.R
 import com.watermelonmann.cities.component.MessageView
 import com.watermelonmann.ui.theme.ThemePreview
-import com.watermelonmann.ui.theme.WeatherTheme
+import com.watermelonmann.ui.theme.WeatherPreviewTheme
 
 @Composable
 internal fun CitiesEmpty(
@@ -19,7 +19,7 @@ internal fun CitiesEmpty(
 @ThemePreview
 @Composable
 private fun CitiesEmptyPreview() {
-    WeatherTheme {
+    WeatherPreviewTheme {
         CitiesEmpty(
             "New York"
         )

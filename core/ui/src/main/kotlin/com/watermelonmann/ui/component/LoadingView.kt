@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.watermelonmann.ui.theme.ThemePreview
-import com.watermelonmann.ui.theme.WeatherTheme
+import com.watermelonmann.ui.theme.WeatherPreviewTheme
 
 @Composable
 fun LoadingView(
@@ -23,7 +23,7 @@ fun LoadingView(
 @ThemePreview
 @Composable
 private fun LoadingViewPreview() {
-    WeatherTheme {
+    WeatherPreviewTheme {
         LoadingView()
     }
 }
