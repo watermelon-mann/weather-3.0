@@ -13,9 +13,8 @@ import kotlinx.coroutines.flow.map
 class CitiesRepositoryImpl @Inject constructor(
     private val apiService: CitiesAPIService
 ) : CitiesRepository {
-    override fun getCities(name: String, limit: Int): Flow<List<CityEntity>> {
-        val mapper = MapperCityResponseToDomain()
-        return apiService.getCities(name, limit)
-            .map(mapper::map)
-    }
+
+    override fun getCities(name: String, limit: Int): Flow<List<CityEntity>> =
+        apiService.getCities(name, limit)
+            .map(MapperCityResponseToDomain()::map)
 }

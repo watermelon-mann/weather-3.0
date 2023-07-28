@@ -26,7 +26,7 @@ import kotlinx.coroutines.flow.update
 
 @HiltViewModel
 class CitiesViewModel @Inject constructor(
-    private val searchCitiesUseCase: SearchCitiesUseCase,
+    private val searchCities: SearchCitiesUseCase,
     routeNavigator: RouteNavigator
 ) : ViewModel(), RouteNavigator by routeNavigator {
 
@@ -44,9 +44,9 @@ class CitiesViewModel @Inject constructor(
     @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
     private fun collectSearchQueries() = searchQueries
         .onEach { query -> if (query.isBlank()) emitHintState() else emitLoading() }
-        .debounce(400)
+        .debounce(SEARCH_DEBOUNCE)
         .filter { it.isNotBlank() }
-        .flatMapLatest { searchCitiesUseCase(it, CITIES_LIMIT) }
+        .flatMapLatest { searchCities(it, CITIES_LIMIT) }
         .flowOn(Dispatchers.IO)
         .onEach(::onSearchResult)
         .catch { emitError() }
@@ -100,6 +100,7 @@ class CitiesViewModel @Inject constructor(
 
     companion object {
         private const val CITIES_LIMIT = 20
+        private const val SEARCH_DEBOUNCE = 400L
     }
 
 }

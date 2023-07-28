@@ -17,6 +17,7 @@ internal fun Project.configureTest() {
             "testImplementation"(getLibrary("junit4"))
             "androidTestImplementation"(getLibrary("androidx.test.espresso.core"))
             "androidTestImplementation"(getLibrary("androidx.test.ext"))
+            "testImplementation"(getLibrary("kotlinx.coroutines.test"))
         }
     }
 }

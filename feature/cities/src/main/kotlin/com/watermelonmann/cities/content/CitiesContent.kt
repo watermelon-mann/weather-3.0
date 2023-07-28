@@ -72,8 +72,8 @@ private fun CitiesContentPreview() {
                         country = "JP",
                         latitude = 0.0,
                         longitude = 0.0
-                    ),
-                ),
+                    )
+                )
             )
         )
     }

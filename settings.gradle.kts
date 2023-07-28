@@ -1,5 +1,4 @@
 pluginManagement {
-    @Suppress("UnstableApiUsage")
     repositories {
         includeBuild("build-logic")
         gradlePluginPortal()
@@ -20,11 +19,16 @@ dependencyResolutionManagement {
 rootProject.name = "Weather"
 
 include(":app")
+include(":shared:common")
 include(":shared:entity")
+include(":shared:testing")
+include(":shared:testing:data-mock")
+
 include(":api:data")
+
 include(":core:data")
 include(":core:domain")
-include(":shared:common")
 include(":core:ui")
+
 include(":feature")
 include(":feature:cities")
